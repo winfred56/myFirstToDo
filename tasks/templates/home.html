@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>You Are Going To Do Something</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Add">
+    </form>
+    {% for task in tasks %}
+        <p>{{task.task}} -- {{task.date}}</p>
+        <a href =' {% url 'editpage' task.id %}'>Edit </a> |----|
+        <a href =' {% url 'deletepage' task.id %}'> Delete </a>
+    {% endfor %}
+</body>
+</html>
